@@ -121,7 +121,7 @@ def main():  # pylint: disable=missing-function-docstring
     if args.user is None:
         parser.print_usage(sys.stderr)
         print(
-            f"{os.path.basename(__file__)}: error: argument --user (or env var {ENVVAR_PREFIX}_USER) is mandatory."
+            f"{os.path.basename(__file__)}: error: argument --user (or env var {ENVVAR_PREFIX}USER) is mandatory."
         )
         sys.exit(1)
 
@@ -129,7 +129,7 @@ def main():  # pylint: disable=missing-function-docstring
     if args.root is None:
         parser.print_usage(sys.stderr)
         print(
-            f"{os.path.basename(__file__)}: error: argument --root (or env var {ENVVAR_PREFIX}_ROOT) is mandatory."
+            f"{os.path.basename(__file__)}: error: argument --root (or env var {ENVVAR_PREFIX}ROOT) is mandatory."
         )
         sys.exit(1)
 
