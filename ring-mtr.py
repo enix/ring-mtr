@@ -210,6 +210,20 @@ def main():  # pylint: disable=missing-function-docstring
     # Add the DNS suffix
     nodes = [n + ".ring.nlnog.net" for n in nodes]
 
+    # Perform a dummy connection to the root node (but it could be any node)
+    # to check that the auth is OK (username, SSH key).
+    # Otherwise we run the risk of running multiple connection attempts with wrong auth
+    # and getting fail2ban'ed. For now we let the AuthenticationError exception raise all the way.
+
+    test_client = ParallelSSHClient(
+        [args.root + ".ring.nlnog.net"],
+        user=args.user,
+        timeout=args.connect_timeout,
+        num_retries=args.retries,
+    )
+    _ = test_client.run_command("uname")
+    test_client.join()
+
     # "Inbound" are the MTRs from each of the remote node towards the root node,
     # and "outbound" are the MTRs from the root node towards each of the remote nodes
 
