@@ -11,9 +11,9 @@ The root node must be specified using its short hostname, and is the node you wa
 
 ## Installation
 
-You have to be a member of the NLNOG ring, and have the correct configuration in `.ssh/config`. If your SSH key is passphrase-protected (it should !), you must have a woring SSH agent.
+You have to be a member of the NLNOG ring, and have the correct configuration in `.ssh/config` or use an SSH agent. If your SSH key is passphrase-protected (it should !), the agent is mandatory.
 
-Clone the repository, and either install the python dependencies using `pip install -r requirements.txt` or, if you do not want to mess with PIP or virtual environments, launch the software using Docker (see below).
+Clone this repository, and either install the python dependencies using `pip install -r requirements.txt` or, if you do not want to mess with your python packages or virtual environments, launch the software using Docker (see below).
 
 ## Usage
 
@@ -50,6 +50,8 @@ options:
 ```
 
 ### Using docker
+
+You must have a working SSH agent, as its socket is mounted into the container and used to provide auth to ring nodes.
 
 Copy the file `ring-mtr.example.env` into `ring-mtr.env` and adapt the values, especially the username.
 
