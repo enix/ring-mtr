@@ -162,7 +162,10 @@ def main():  # pylint: disable=missing-function-docstring
         mtr_ip_version_flag = ""
 
     # Get all current ring nodes from DNS
-    answers = dns.resolver.resolve("ring.nlnog.net", "TXT")
+    resolver = dns.resolver.Resolver()
+    # Use cloudflare DNS to workaround funky resolvers for the TXT query
+    resolver.nameservers = ["1.1.1.1", "1.0.0.1"]
+    answers = resolver.resolve("ring.nlnog.net.", "TXT")
     nodes = " ".join([str(i).strip('"') for i in answers]).split()
     # 'nodes' will be shaped, so we keep an unaltered list of all ring nodes
     all_nodes = nodes.copy()
