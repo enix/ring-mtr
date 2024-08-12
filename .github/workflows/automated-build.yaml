@@ -1,0 +1,11 @@
+name: Automated Build
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  automated-build:
+    uses: jpetazzo/workflows/.github/workflows/automated-build.yaml@main
