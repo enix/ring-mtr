@@ -3,7 +3,7 @@ services:
 
   ring-mtr:
     build: .
-    image: ring-mtr
+    image: ghcr.io/enix/ring-mtr
     env_file: ring-mtr.env
     environment:
       SSH_AUTH_SOCK: ${SSH_AUTH_SOCK}
