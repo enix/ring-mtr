@@ -56,5 +56,3 @@ You must have a working SSH agent, as its socket is mounted into the container a
 Copy the file `ring-mtr.example.env` into `ring-mtr.env` and adapt the values, especially the username.
 
 Then, run `docker compose run ring-mtr`. You can use a mix of environment variables and command-line flags.
-
-After a code update, make sure to rebuild the docker image using `docker compose build`.
