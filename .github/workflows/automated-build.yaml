@@ -9,3 +9,5 @@ on:
 jobs:
   automated-build:
     uses: jpetazzo/workflows/.github/workflows/automated-build.yaml@main
+    with:
+      PLATFORMS: linux/amd64
